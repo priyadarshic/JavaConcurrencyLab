@@ -26,12 +26,12 @@ public class FutureCallableDemo {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         Float floatArr[] = {1.0F, 2.0F, 3.0F, 4.0F, 5.0F};
-        ArrayList<Float> fltArr = new ArrayList<Float>(Arrays.asList(floatArr));
+        ArrayList<Float> fltArr = new ArrayList<>(Arrays.asList(floatArr));
         MyCallable<Float> floatMyCallable = new MyCallable<Float>(fltArr);
         Future future = executorService.submit(floatMyCallable);
 
         System.out.println("future.isDone(): " + future.isDone());
-        System.out.println("future.get(): " + future.get());       //Blocking Call
+        System.out.println("future.get(): " + future.get());       // Blocking Call get()
         executorService.shutdown();
 
 
